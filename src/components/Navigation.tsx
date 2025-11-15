@@ -19,14 +19,14 @@ const Navigation = () => {
     <nav className="bg-card border-b border-border/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src="https://i.ibb.co/GL5j9BR/Whats-App-Image-2025-11-14-at-12-34-42-PM-removebg-preview.png"
-              alt="FiberLink"
-              className="h-8 w-auto glitch-img"
-            />
-            <span className="sr-only">FiberLink</span>
+          {/* Logo (text) */}
+          <Link to="/" className="text-2xl font-bold text-primary text-glow-blue flex items-center gap-2">
+            <span>FiberLink</span>
+{/*             <img
+              src=""
+              alt="FiberLink logo"
+              className="h-6 w-6"
+            /> */}
           </Link>
 
           {/* Desktop Navigation */}
