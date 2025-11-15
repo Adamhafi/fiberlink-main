@@ -71,9 +71,11 @@ const Home = () => {
               Luxury IT, Network, CCTV, and Fiber Optic services. Elite support when you need it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-2 glow-blue-strong floaty">
-                <Phone className="h-5 w-5" />
-                Call 81-854649
+              <Button size="lg" className="gap-2 glow-blue-strong floaty" asChild>
+                <a href="tel:+81-854649" aria-label="Call 81-854649" className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Call 81-854649
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="gap-2 border-primary/50 hover:bg-primary/10" asChild>
                 <a href="/contact">Request Support</a>
@@ -195,10 +197,12 @@ const Home = () => {
           <p className="text-lg mb-8 text-foreground/90 max-w-2xl mx-auto">
             Our elite team is ready to deliver premium IT, network, and security solutions
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gap-2 glow-blue-strong floaty">
-              <Phone className="h-5 w-5" />
-              81-854649
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="gap-2 glow-blue-strong floaty" asChild>
+              <a href="tel:+81-854649" aria-label="Call 81-854649" className="flex items-center gap-2">
+                <Phone className="h-5 w-5" />
+                Call 81-854649
+              </a>
             </Button>
           </div>
         </div>
