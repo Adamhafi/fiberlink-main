@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+     :root {
+        --background: 0 0% 7%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 10%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 8%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 210 100% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 15%;
+        --secondary-foreground: 210 100% 65%;
+        --muted: 0 0% 12%;
+        --muted-foreground: 0 0% 60%;
+        --accent: 210 100% 45%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 0 0% 20%;
+        --input: 0 0% 18%;
+        --ring: 210 100% 55%;
+        --radius: 0.75rem;
+        --hero-gradient-from: 210 100% 55%;
+        --hero-gradient-to: 220 100% 35%;
+        --hero-gradient-black: 0 0% 0%;
+        --luxury-blue: 210 100% 55%;
+        --luxury-blue-light: 210 100% 65%;
+        --luxury-blue-dark: 220 100% 35%;
+        --luxury-black: 0 0% 7%;
+        --luxury-black-lighter: 0 0% 15%;
+        --glow-blue: 210 100% 55%;
+    }
+    .dark {
+        --background: 0 0% 7%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 10%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 8%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 210 100% 55%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 15%;
+        --secondary-foreground: 210 100% 65%;
+        --muted: 0 0% 12%;
+        --muted-foreground: 0 0% 60%;
+        /* Additional animations and effects */
+        @keyframes floaty {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes slide-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        @keyframes neonPulse {
+            0% {
+                box-shadow: 0 0 6px hsl(var(--glow-blue) / 0.12);
+            }
+            50% {
+                box-shadow: 0 0 18px hsl(var(--glow-blue) / 0.35);
+            }
+            100% {
+                box-shadow: 0 0 6px hsl(var(--glow-blue) / 0.12);
+            }
+        }
+        .floaty {
+            animation: floaty 3.6s ease-in-out infinite;
+            will-change: transform;
+        }
+        .hero-animate {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-animate::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(81, 145, 255, 0.06), rgba(120, 60, 255, 0.04), rgba(81, 145, 255, 0.06));
+            background-size: 200% 200%;
+            pointer-events: none;
+            animation: slide-bg 12s linear infinite;
+            mix-blend-mode: overlay;
+        }
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            height: 2px;
+            width: 0;
+            background: linear-gradient(90deg, hsl(var(--glow-blue)), hsl(var(--luxury-blue-light)));
+            transition: width 240ms cubic-bezier(.2, .9, .2, 1);
+            border-radius: 2px;
+        }
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+        /* subtle neon on elements */
+        .neon {
+            animation: neonPulse 3.2s ease-in-out infinite;
+        }
+        --accent: 210 100% 45%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 0 0% 20%;
+        --input: 0 0% 18%;
+        --ring: 210 100% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@layer utilities {
+    .glow-blue {
+        box-shadow: 0 0 20px hsl(var(--glow-blue) / 0.3), 0 0 40px hsl(var(--glow-blue) / 0.1);
+    }
+    .glow-blue-strong {
+        box-shadow: 0 0 30px hsl(var(--glow-blue) / 0.5), 0 0 60px hsl(var(--glow-blue) / 0.2);
+    }
+    .text-glow-blue {
+        text-shadow: 0 0 20px hsl(var(--glow-blue) / 0.5);
+    }
+    .delay-75 {
+        animation-delay: 75ms;
+    }
+    .delay-150 {
+        animation-delay: 150ms;
+    }
+    /* Subtle glitch animation for the site logo */
+    @keyframes glitch {
+        0% {
+            transform: translateX(0) skewX(0);
+            filter: none;
+            opacity: 1;
+        }
+        10% {
+            transform: translateX(-2px) skewX(-1deg);
+            filter: hue-rotate(-8deg) contrast(1.05);
+        }
+        20% {
+            transform: translateX(2px) skewX(1deg);
+            filter: hue-rotate(8deg) contrast(1.05);
+        }
+        30% {
+            transform: translateX(-1px) skewX(-0.5deg);
+            filter: none;
+        }
+        40% {
+            transform: translateX(1px) skewX(0.5deg);
+            filter: none;
+        }
+        100% {
+            transform: translateX(0) skewX(0);
+            filter: none;
+            opacity: 1;
+        }
+    }
+    .glitch-img {
+        display: inline-block;
+        height: 2rem;
+        /* default height (8) — overridden by Tailwind h-8 if present */
+        width: auto;
+        backface-visibility: hidden;
+        animation: glitch 2.4s infinite linear;
+    }
+}
