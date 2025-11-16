@@ -1,5 +1,6 @@
 import { Phone, CheckCircle2, Monitor, Network, Camera, Cable } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EvervaultCardDemo } from "@/components/ui/evervault-card-demo";
 import ServiceCard from "@/components/ServiceCard";
 import heroImage from "@/assets/hero-fiber-luxury.jpg";
 import fiberCables from "@/assets/fiber-cables-1.jpg";
@@ -181,6 +182,19 @@ const Home = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Evervault Card Demo */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-glow-blue">Interactive Demo</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">A small demo of the Evervault card component.</p>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <EvervaultCardDemo />
           </div>
         </div>
       </section>
